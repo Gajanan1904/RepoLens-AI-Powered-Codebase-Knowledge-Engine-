@@ -1,0 +1,149 @@
+/* File Viewer Page Styling */
+
+/* Breadcrumbs */
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-md);
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  text-align: left;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.breadcrumb-link {
+  color: var(--color-text-muted);
+  font-weight: var(--weight-medium);
+  transition: color var(--transition-fast);
+}
+
+.breadcrumb-link:hover {
+  color: var(--color-primary);
+}
+
+.breadcrumb-separator {
+  color: var(--color-border-hover);
+  user-select: none;
+}
+
+.breadcrumb-active {
+  color: var(--color-text-primary);
+  font-weight: var(--weight-semibold);
+}
+
+/* File Viewer Header Panel */
+.file-header-card {
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+  text-align: left;
+}
+
+@media (min-width: 640px) {
+  .file-header-card {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.file-title-block {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.file-title {
+  font-size: 1.35rem;
+  font-weight: var(--weight-bold);
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+}
+
+.file-size-badge {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.file-actions-row {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+/* Code Viewer Workspace Editor */
+.code-viewer-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+}
+
+.code-viewer-container {
+  display: flex;
+  overflow: auto;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  max-height: 700px;
+  background-color: #0b0a15; /* Dark background matching code panels */
+}
+
+/* Line Numbers Column */
+.line-numbers-col {
+  width: 48px;
+  color: rgba(255, 255, 255, 0.25);
+  background-color: rgba(8, 7, 16, 0.4);
+  border-right: 1px solid var(--color-border);
+  padding: var(--space-md) 0;
+  text-align: right;
+  padding-right: var(--space-sm);
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.line-number-row {
+  height: 22px;
+  font-size: 0.8rem;
+}
+
+/* Code Content Column */
+.code-content-col {
+  flex: 1;
+  overflow-x: auto;
+  padding: var(--space-md) 0;
+  white-space: pre;
+  color: #c9d1d9; /* Standard bright text for syntax highlighted code */
+  text-align: left;
+}
+
+.code-line-row {
+  height: 22px;
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
+  transition: background-color var(--transition-fast);
+}
+
+.code-line-row:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Custom Simple Syntax Highlighting Styles (UI only) */
+.token-comment { color: #8b949e; font-style: italic; }
+.token-keyword { color: #ff7b72; font-weight: var(--weight-bold); }
+.token-string { color: #a5d6ff; }
+.token-function { color: #d2a8ff; }
+.token-number { color: #f0883e; }
+.token-class { color: #ff9e64; }
+.token-operator { color: #ff7b72; }

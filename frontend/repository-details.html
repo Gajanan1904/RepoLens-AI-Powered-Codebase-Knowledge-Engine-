@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore details, browse file structures, check insights aggregates, and chat with AI in your codebase index.">
+  <title>Repository Details - RepoLens</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/dark-theme.css">
+  <link rel="stylesheet" href="css/light-theme.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/utilities.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/pages/repository-details.css">
+
+  <!-- ES Module Entry -->
+  <script type="module" src="js/app.js"></script>
+</head>
+<body class="app-shell">
+
+  <!-- Navbar target container -->
+  <div id="navbar-container"></div>
+
+  <!-- Authenticated Shell Container -->
+  <div class="shell-container">
+    
+    <!-- Sidebar target container -->
+    <aside id="sidebar-container" class="sidebar"></aside>
+
+    <!-- Main Content Area -->
+    <main class="content-wrapper" id="main-content-scrollable">
+      
+      <!-- Repository Details Sub-header -->
+      <div id="repo-header-container" class="dashboard-header animate-fade-in">
+        <div>
+          <!-- Skeleton default -->
+          <div class="skeleton skeleton-title w-half h-xl mb-xs"></div>
+          <div class="skeleton skeleton-desc w-third h-md"></div>
+        </div>
+      </div>
+
+      <!-- Tabs Navigation -->
+      <div class="tabs-container animate-fade-in delay-1">
+        <button class="tab-btn active" data-tab="overview">Overview</button>
+        <button class="tab-btn" data-tab="explorer">Explorer</button>
+        <button class="tab-btn" data-tab="insights">Insights</button>
+        <button class="tab-btn" data-tab="aichat">AI Chat</button>
+      </div>
+
+      <!-- Tab Panes Content Slots -->
+      <div id="tabs-content" class="flex-grow flex flex-col">
+        
+        <!-- 1. Overview Pane -->
+        <div class="tab-pane active" id="overview-pane">
+          <!-- Populated by repositoryDetails.js -->
+        </div>
+
+        <!-- 2. Explorer Pane -->
+        <div class="tab-pane" id="explorer-pane">
+          <div class="explorer-layout">
+            
+            <!-- Left: File Search and Folder Tree -->
+            <div class="explorer-tree-sidebar">
+              <div class="explorer-toolbar">
+                <input type="text" id="explorer-search" class="form-input text-xs" style="padding: 0.4rem 0.6rem;" placeholder="Search files...">
+              </div>
+              <div class="explorer-tree-view" id="explorer-tree-root"></div>
+            </div>
+
+            <!-- Right: File Code Preview panel -->
+            <div class="explorer-preview-panel" id="explorer-preview-root">
+              <div class="preview-placeholder">
+                <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1" class="text-muted"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                <p class="mt-md text-sm">Select a file from the explorer list to view code preview snippet.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 3. Insights Pane -->
+        <div class="tab-pane" id="insights-pane">
+          <!-- Populated by repositoryDetails.js -->
+        </div>
+
+        <!-- 4. AI Chat Pane -->
+        <div class="tab-pane" id="aichat-pane">
+          <div class="chat-layout">
+            
+            <!-- Left: Chat Sessions History -->
+            <aside class="chat-sidebar">
+              <div class="chat-sidebar-header">
+                <button class="btn btn-secondary btn-sm w-full justify-center" id="btn-new-chat">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                  <span>New Chat</span>
+                </button>
+              </div>
+              <div class="chat-history-list" id="chat-sessions-list">
+                <div class="chat-history-item active" data-session="current">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                  <span class="truncate">Current Conversation</span>
+                </div>
+              </div>
+            </aside>
+
+            <!-- Center: Interactive Message Stream -->
+            <section class="chat-main">
+              <!-- Viewport -->
+              <div class="chat-messages" id="chat-messages-container">
+                <div class="chat-message ai animate-fade-in">
+                  <div class="chat-message-header">AI ASSISTANT</div>
+                  <div class="chat-message-body">
+                    <p>Hello! I am your RepoLens AI agent. I have indexed your repository files, classes, and packages. Ask me anything about this codebase!</p>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Input Bottom Bar -->
+              <div class="chat-input-wrapper">
+                <div class="chat-input-row">
+                  <textarea id="chat-message-input" class="chat-textarea" placeholder="Ask AI a question about this repository... (Shift+Enter for new line)" aria-label="Type message"></textarea>
+                  <button class="btn btn-primary" id="btn-send-chat" style="padding: var(--space-sm) var(--space-md);" disabled aria-label="Send query">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                  </button>
+                </div>
+              </div>
+            </section>
+
+            <!-- Right: Semantic Retrieval Context Pane -->
+            <aside class="chat-context-pane">
+              <div class="chat-context-header">Semantic Code Context</div>
+              <div class="chat-context-body" id="chat-retrieved-contexts">
+                <div class="text-muted text-xs text-center py-xl">Matches from similarity lookups will show up here.</div>
+              </div>
+            </aside>
+
+          </div>
+        </div>
+
+      </div>
+      
+    </main>
+  </div>
+
+  <!-- Reusable modal wrapper -->
+  <div id="modal-wrapper"></div>
+
+  <!-- Reusable Toast notifications container -->
+  <div id="toast-container"></div>
+
+</body>
+</html>

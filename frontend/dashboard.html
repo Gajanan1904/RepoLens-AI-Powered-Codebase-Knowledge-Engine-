@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="RepoLens user dashboard containing structural repository aggregates, technology distributions, processing status charts, and recent codebases.">
+  <title>Dashboard - RepoLens</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/dark-theme.css">
+  <link rel="stylesheet" href="css/light-theme.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/utilities.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/pages/dashboard.css">
+
+  <!-- ES Module Entry -->
+  <script type="module" src="js/app.js"></script>
+</head>
+<body class="app-shell">
+
+  <!-- Navbar Component Target Container -->
+  <div id="navbar-container"></div>
+
+  <!-- Authenticated Shell Container -->
+  <div class="shell-container">
+    
+    <!-- Sidebar Component Target Container -->
+    <aside id="sidebar-container" class="sidebar"></aside>
+
+    <!-- Main Content Area -->
+    <main class="content-wrapper" id="main-content-scrollable">
+      
+      <!-- Welcome Header -->
+      <div class="dashboard-header animate-fade-in">
+        <div>
+          <h1 class="dashboard-title">Dashboard</h1>
+          <p class="text-muted text-sm mt-xs">High-level analysis summaries across all active workspaces.</p>
+        </div>
+        <div class="flex items-center gap-sm mt-sm sm-mt-none">
+          <button class="btn btn-secondary" id="btn-dashboard-refresh" aria-label="Refresh dashboard data">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path></svg>
+            <span>Refresh</span>
+          </button>
+          <button class="btn btn-primary" id="btn-create-repo" aria-label="Create new repository">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            <span>New Repository</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Actions Panel -->
+      <div class="quick-actions-panel animate-slide-up delay-1">
+        <div class="action-card" id="action-create-repo">
+          <div class="action-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </div>
+          <div>
+            <div class="action-title">Create Index</div>
+            <div class="action-desc">Index a new codebase space</div>
+          </div>
+        </div>
+        <div class="action-card" id="action-browse-repos">
+          <div class="action-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+          </div>
+          <div>
+            <div class="action-title">Browse Workspaces</div>
+            <div class="action-desc">Check active repository cards</div>
+          </div>
+        </div>
+        <div class="action-card" id="action-settings">
+          <div class="action-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          </div>
+          <div>
+            <div class="action-title">Configure Profile</div>
+            <div class="action-desc">Edit credentials & parameters</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Statistics Targets Grid Container -->
+      <div id="stats-container" class="animate-slide-up delay-2 mb-xl"></div>
+
+      <!-- Charts Targets Grid Container -->
+      <div class="charts-grid-row animate-slide-up delay-3">
+        <!-- Donut 1: Status -->
+        <div class="card chart-card">
+          <h3 class="chart-card-title">Ingestion Status</h3>
+          <div class="chart-card-content" id="chart-status-container"></div>
+        </div>
+        <!-- Donut 2: Language -->
+        <div class="card chart-card">
+          <h3 class="chart-card-title">Language Distribution</h3>
+          <div class="chart-card-content" id="chart-lang-container"></div>
+        </div>
+        <!-- Bars 3: Project types -->
+        <div class="card chart-card">
+          <h3 class="chart-card-title">Framework Families</h3>
+          <div class="chart-card-content" id="chart-types-container"></div>
+        </div>
+      </div>
+
+      <!-- Recent Repositories Section -->
+      <section class="recent-repos-section animate-slide-up delay-4" id="recent-repos-section">
+        <div class="section-subheader-row">
+          <h2 class="section-subheader-title">Recent Repositories</h2>
+          <a href="repositories.html" class="btn btn-secondary btn-sm" id="btn-view-all-repos">View All</a>
+        </div>
+        
+        <!-- Table container target -->
+        <div id="table-repos-container"></div>
+      </section>
+      
+    </main>
+  </div>
+
+  <!-- Reusable modal wrapper -->
+  <div id="modal-wrapper"></div>
+
+  <!-- Reusable Toast notifications container -->
+  <div id="toast-container"></div>
+
+</body>
+</html>

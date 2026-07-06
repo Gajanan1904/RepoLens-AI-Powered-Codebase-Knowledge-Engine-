@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="RepoLens is an AI-powered codebase knowledge engine. Upload repositories, search semantically, and chat with AI to understand codebases instantly.">
+  <title>RepoLens - AI-Powered Codebase Knowledge Engine</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/dark-theme.css">
+  <link rel="stylesheet" href="css/light-theme.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/utilities.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/pages/landing.css">
+
+  <!-- ES Module Entry -->
+  <script type="module" src="js/app.js"></script>
+</head>
+<body class="landing-page-wrapper">
+
+  <!-- Sticky Navbar -->
+  <header class="navbar-fixed animate-fade-in" id="sticky-navbar">
+    <div class="container navbar-container">
+      <!-- Logo -->
+      <a href="#" class="logo" id="nav-logo-link" aria-label="RepoLens Home">
+        <div class="logo-icon">R</div>
+        <span>RepoLens</span>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="#features" class="nav-link" id="nav-features-link">Features</a>
+        <a href="#how-it-works" class="nav-link" id="nav-how-link">How It Works</a>
+        <a href="#technologies" class="nav-link" id="nav-tech-link">Technologies</a>
+        <a href="#about" class="nav-link" id="nav-about-link">About</a>
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="nav-link" id="nav-github-link">GitHub</a>
+      </nav>
+
+      <!-- Desktop Actions -->
+      <div class="nav-actions">
+        <!-- Theme Toggle Button -->
+        <button class="theme-toggle-btn" aria-label="Toggle visual theme" id="desktop-theme-toggle">
+          <!-- Sun Icon (visible in dark mode) -->
+          <svg class="sun-icon" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <!-- Moon Icon (visible in light mode) -->
+          <svg class="moon-icon" viewBox="0 0 24 24">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <a href="login.html" class="btn btn-secondary" id="desktop-login-btn">Login</a>
+        <a href="register.html" class="btn btn-primary" id="desktop-signup-btn">Get Started</a>
+      </div>
+
+      <!-- Mobile Trigger -->
+      <button class="menu-trigger" aria-label="Toggle mobile menu" id="mobile-menu-trigger">
+        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Overlay Navigation -->
+  <div class="mobile-nav" id="mobile-nav-overlay">
+    <nav class="mobile-nav-links" aria-label="Mobile Navigation">
+      <a href="#features" class="mobile-nav-link" id="mobile-features-link">Features</a>
+      <a href="#how-it-works" class="mobile-nav-link" id="mobile-how-link">How It Works</a>
+      <a href="#technologies" class="mobile-nav-link" id="mobile-tech-link">Technologies</a>
+      <a href="#about" class="mobile-nav-link" id="mobile-about-link">About</a>
+      <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="mobile-nav-link" id="mobile-github-link">GitHub</a>
+    </nav>
+    <div class="mobile-nav-actions">
+      <!-- Theme Toggle inside Mobile Overlay -->
+      <div class="flex items-center justify-between py-sm">
+        <span class="text-secondary font-medium">Switch Appearance</span>
+        <button class="theme-toggle-btn" aria-label="Toggle visual theme" id="mobile-theme-toggle">
+          <svg class="sun-icon" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+      <a href="login.html" class="btn btn-secondary w-full text-center" id="mobile-login-btn">Login</a>
+      <a href="register.html" class="btn btn-primary w-full text-center" id="mobile-signup-btn">Get Started</a>
+    </div>
+  </div>
+
+  <main class="main-content">
+    
+    <!-- Hero Section -->
+    <section class="section container hero-section animate-fade-in" id="hero">
+      <div class="landing-glow-1 absolute"></div>
+      
+      <div class="hero-text animate-slide-up delay-1">
+        <div class="hero-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+          <span>AI-Powered Repository Analyzer</span>
+        </div>
+        <h1 class="hero-title">Understand Any Codebase Instantly.</h1>
+        <p class="hero-subtitle">
+          RepoLens maps structural trees, analyzes dependencies, indexes code vectors semantically, and answers complex questions using the power of Gemini AI.
+        </p>
+        <div class="hero-actions">
+          <a href="register.html" class="btn btn-primary btn-lg" id="hero-signup-btn">Get Started for Free</a>
+          <a href="#how-it-works" class="btn btn-secondary btn-lg" id="hero-demo-btn">View Demo</a>
+        </div>
+      </div>
+
+      <!-- Right Side Visual / Illustration -->
+      <div class="hero-visual animate-slide-up delay-2">
+        <div class="hero-image-wrapper animate-float">
+          <img src="assets/images/hero_dashboard_mockup.png" alt="RepoLens Repository Analysis Visual Mockup" class="hero-mockup-img" loading="eager">
+          <!-- Floating Tags -->
+          <div class="floating-tag floating-tag-1">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            <span>AI Powered</span>
+          </div>
+          <div class="floating-tag floating-tag-2">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <span>Semantic Search</span>
+          </div>
+          <div class="floating-tag floating-tag-3">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+            <span>Code Intelligence</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero highlights row -->
+      <div class="hero-highlights animate-slide-up delay-3">
+        <div class="highlight-card">
+          <div class="highlight-icon-wrapper">
+            <i data-lucide="brain"></i>
+          </div>
+          <h3 class="highlight-title">AI Code Understanding</h3>
+          <p class="highlight-desc">Get natural language answers about architectural details and files.</p>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-icon-wrapper">
+            <i data-lucide="search"></i>
+          </div>
+          <h3 class="highlight-title">Smart Search</h3>
+          <p class="highlight-desc">Perform semantic lookups based on actual intents and features.</p>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-icon-wrapper">
+            <i data-lucide="network"></i>
+          </div>
+          <h3 class="highlight-title">Architecture Insights</h3>
+          <p class="highlight-desc">Identify structural relationships, frameworks, and classes automatically.</p>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-icon-wrapper">
+            <i data-lucide="shield-check"></i>
+          </div>
+          <h3 class="highlight-title">Secure & Private</h3>
+          <p class="highlight-desc">Your uploaded codebase files are sandboxed and fully protected.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section container features-section" id="features">
+      <div class="section-header">
+        <span class="section-label">Features</span>
+        <h2 class="section-title">Engineered for Code Intelligence</h2>
+        <p class="section-desc">RepoLens connects advanced syntax parsers with retrieval models to offer state-of-the-art repository analysis.</p>
+      </div>
+
+      <div class="features-grid">
+        <!-- Feature 1 -->
+        <div class="card feature-card card-hover">
+          <div class="feature-icon-wrapper">
+            <i data-lucide="bar-chart-3"></i>
+          </div>
+          <h3 class="card-title">AI Repository Analysis</h3>
+          <p class="card-description">Extract frameworks, primary languages, dependency definitions, and entry points on upload. Get high-level structural breakdowns automatically.</p>
+        </div>
+        <!-- Feature 2 -->
+        <div class="card feature-card card-hover">
+          <div class="feature-icon-wrapper">
+            <i data-lucide="git-fork"></i>
+          </div>
+          <h3 class="card-title">Tree-sitter Parsing</h3>
+          <p class="card-description">Utilizes native Tree-sitter parsers to dissect classes, import relationships, and individual function locations from code blocks.</p>
+        </div>
+        <!-- Feature 3 -->
+        <div class="card feature-card card-hover">
+          <div class="feature-icon-wrapper">
+            <i data-lucide="search-code"></i>
+          </div>
+          <h3 class="card-title">Semantic Search</h3>
+          <p class="card-description">Search by meaning rather than exact strings. Find logic like "JWT validation token" even if those exact words do not exist in comments.</p>
+        </div>
+        <!-- Feature 4 -->
+        <div class="card feature-card card-hover">
+          <div class="feature-icon-wrapper">
+            <i data-lucide="message-square-code"></i>
+          </div>
+          <h3 class="card-title">RAG-powered AI Chat</h3>
+          <p class="card-description">Chat with an assistant customized to your codebase. Gemini references specific vectors to answer where code segments exist or how they interface.</p>
+        </div>
+        <!-- Feature 5 -->
+        <div class="card feature-card card-hover">
+          <div class="feature-icon-wrapper">
+            <i data-lucide="folder-tree"></i>
+          </div>
+          <h3 class="card-title">Interactive File Explorer</h3>
+          <p class="card-description">Browse through the repository using a responsive virtual file explorer window, integrated directly alongside metadata summaries.</p>
+        </div>
+        <!-- Feature 6 -->
+        <div class="card feature-card card-hover">
+          <div class="feature-icon-wrapper">
+            <i data-lucide="cpu"></i>
+          </div>
+          <h3 class="card-title">Technology Detection</h3>
+          <p class="card-description">Instantly index third-party libraries, framework stacks, database connectors, and active configuration standards without manual definition.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How RepoLens Works Section -->
+    <section class="section container how-it-works-section" id="how-it-works">
+      <div class="landing-glow-2 absolute animate-glow-pulse"></div>
+
+      <div class="section-header">
+        <span class="section-label">Pipeline</span>
+        <h2 class="section-title">How RepoLens Works</h2>
+        <p class="section-desc">From raw source code upload to instant AI answers: witness the complete codebase ingestion workflow.</p>
+      </div>
+
+      <div class="timeline-container">
+        <div class="timeline-line"></div>
+        
+        <!-- Step 1 -->
+        <div class="timeline-step">
+          <div class="timeline-step-badge">1</div>
+          <div class="timeline-step-content">
+            <h3 class="timeline-step-title">Repository Upload</h3>
+            <p class="timeline-step-desc">Upload your source codebase package securely via multipart ZIP upload.</p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="timeline-step">
+          <div class="timeline-step-badge">2</div>
+          <div class="timeline-step-content">
+            <h3 class="timeline-step-title">Filtering</h3>
+            <p class="timeline-step-desc">The scanner filters lockfiles, build artifacts, node_modules, and media assets to parse only source files.</p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="timeline-step">
+          <div class="timeline-step-badge">3</div>
+          <div class="timeline-step-content">
+            <h3 class="timeline-step-title">Analysis</h3>
+            <p class="timeline-step-desc">Tree-sitter structures code syntax and extracts metadata about files, imports, classes, and dependencies.</p>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="timeline-step">
+          <div class="timeline-step-badge">4</div>
+          <div class="timeline-step-content">
+            <h3 class="timeline-step-title">Embeddings</h3>
+            <p class="timeline-step-desc">Code chunks are transformed into dense vectors and stored securely in the database vector index.</p>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="timeline-step">
+          <div class="timeline-step-badge">5</div>
+          <div class="timeline-step-content">
+            <h3 class="timeline-step-title">Semantic Retrieval</h3>
+            <p class="timeline-step-desc">When you ask a question, the engine retrieves matching code contexts using cosine similarity thresholds.</p>
+          </div>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="timeline-step">
+          <div class="timeline-step-badge">6</div>
+          <div class="timeline-step-content">
+            <h3 class="timeline-step-title">Gemini AI</h3>
+            <p class="timeline-step-desc">Relevant code contexts are injected into a structured context window and passed to the Gemini LLM.</p>
+          </div>
+        </div>
+
+        <!-- Step 7 -->
+        <div class="timeline-step">
+          <div class="timeline-step-badge">7</div>
+          <div class="timeline-step-content">
+            <h3 class="timeline-step-title">Answer</h3>
+            <p class="timeline-step-desc">Get a detailed, contextualized answer explaining exactly how the code implements the target feature.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why RepoLens Section -->
+    <section class="section container why-section" id="about">
+      <div class="section-header">
+        <span class="section-label">Advantages</span>
+        <h2 class="section-title">Why Developers Choose RepoLens</h2>
+        <p class="section-desc">Traditional search is limited. RepoLens indexes semantic meaning, giving you instant familiarity with any codebase.</p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-item">
+          <div class="why-icon">
+            <i data-lucide="zap"></i>
+          </div>
+          <div>
+            <h3 class="why-title">Understand Codebase Instantly</h3>
+            <p class="why-desc">Skip hours of reading unfamiliar files. RepoLens gives you high-level overviews and pinpoint details of any system in seconds.</p>
+          </div>
+        </div>
+
+        <div class="why-item">
+          <div class="why-icon">
+            <i data-lucide="database"></i>
+          </div>
+          <div>
+            <h3 class="why-title">Grounded in Code Context</h3>
+            <p class="why-desc">No hallucinations. The AI assistant responds directly based on code chunks, class signatures, and imports retrieved from your specific repository.</p>
+          </div>
+        </div>
+
+        <div class="why-item">
+          <div class="why-icon">
+            <i data-lucide="binary"></i>
+          </div>
+          <div>
+            <h3 class="why-title">Production Repository Intelligence</h3>
+            <p class="why-desc">Detailed analytics tracking file densities, language weights, class networks, import structures, and active framework layers.</p>
+          </div>
+        </div>
+
+        <div class="why-item">
+          <div class="why-icon">
+            <i data-lucide="git-pull-request"></i>
+          </div>
+          <div>
+            <h3 class="why-title">Modern RAG Architecture</h3>
+            <p class="why-desc">Utilizes advanced embedding pipelines and vector-based semantic retrieval, creating a seamless connection between text queries and code nodes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technologies Grid Section -->
+    <section class="section container tech-section" id="technologies">
+      <div class="section-header">
+        <span class="section-label">Stack</span>
+        <h2 class="section-title">Built with Modern Tech</h2>
+        <p class="section-desc">RepoLens harnesses production-grade libraries and services to process code efficiently.</p>
+      </div>
+
+      <div class="tech-grid">
+        <span class="badge badge-tech">Python</span>
+        <span class="badge badge-tech">Django</span>
+        <span class="badge badge-tech">PostgreSQL</span>
+        <span class="badge badge-tech">Tree-sitter</span>
+        <span class="badge badge-tech">pgvector</span>
+        <span class="badge badge-tech">Gemini</span>
+        <span class="badge badge-tech">JavaScript</span>
+        <span class="badge badge-tech">HTML</span>
+        <span class="badge badge-tech">CSS</span>
+        <span class="badge badge-tech">JWT</span>
+        <span class="badge badge-tech">Swagger</span>
+      </div>
+    </section>
+
+    <!-- Call To Action Section -->
+    <section class="section container">
+      <div class="cta-box">
+        <h2 class="cta-title">Ready to Explore Your Codebase?</h2>
+        <p class="cta-desc">Upload a ZIP of your repository today and let RepoLens explain its architecture, functions, and workflows in seconds.</p>
+        <div class="cta-actions">
+          <a href="register.html" class="btn btn-primary btn-lg" id="cta-signup-btn">Get Started for Free</a>
+          <a href="login.html" class="btn btn-secondary btn-lg" id="cta-login-btn">Login to Account</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-info">
+          <a href="#" class="logo" id="footer-logo-link" aria-label="RepoLens Home">
+            <div class="logo-icon">R</div>
+            <span>RepoLens</span>
+          </a>
+          <p class="footer-desc">AI-powered codebase knowledge engine. Analyze repository structures, search semantically, and chat with your source code.</p>
+        </div>
+        
+        <div class="footer-links-col">
+          <h4 class="footer-col-title">Navigation</h4>
+          <a href="#features" class="footer-link" id="footer-features-link">Features</a>
+          <a href="#how-it-works" class="footer-link" id="footer-how-link">How It Works</a>
+          <a href="#technologies" class="footer-link" id="footer-tech-link">Technologies</a>
+          <a href="#about" class="footer-link" id="footer-about-link">About</a>
+        </div>
+
+        <div class="footer-links-col">
+          <h4 class="footer-col-title">Connect</h4>
+          <div class="footer-socials">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="GitHub Repository" id="footer-github-btn">
+              <i data-lucide="github"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="LinkedIn Profile" id="footer-linkedin-btn">
+              <i data-lucide="linkedin"></i>
+            </a>
+            <a href="mailto:info@repolens.ai" class="footer-social-btn" aria-label="Email Contact" id="footer-email-btn">
+              <i data-lucide="mail"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 RepoLens. All rights reserved.</p>
+        <div class="flex gap-md">
+          <a href="#" class="footer-link text-xs">Privacy Policy</a>
+          <a href="#" class="footer-link text-xs">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide Icons immediately after script loads
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+    });
+  </script>
+</body>
+</html>

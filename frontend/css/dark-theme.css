@@ -1,0 +1,45 @@
+/* Dark Theme Colors (Default) */
+:root, :root[data-theme="dark"] {
+  /* Color Palette */
+  --color-bg: #0b0a15;
+  --color-bg-secondary: #080710;
+  
+  --color-surface: #141324;
+  --color-surface-hover: #1c1a32;
+  --color-surface-active: #23213d;
+  
+  --color-border: #23213d;
+  --color-border-hover: #323054;
+  
+  --color-text-primary: #f5f6fa;
+  --color-text-secondary: #a29bfe;
+  --color-text-muted: #6f6a9e;
+
+  /* Accents */
+  --color-primary: #6c5ce7;
+  --color-primary-hover: #8257e5;
+  --color-primary-active: #5849c4;
+  --color-primary-glow: rgba(108, 92, 231, 0.15);
+
+  --color-secondary: #00d2d3;
+  --color-secondary-hover: #00b894;
+  --color-secondary-active: #01a3a4;
+  --color-secondary-glow: rgba(0, 210, 211, 0.15);
+
+  /* Status Colors */
+  --color-success: #10ac84;
+  --color-success-bg: rgba(16, 172, 132, 0.1);
+  --color-success-border: rgba(16, 172, 132, 0.2);
+
+  --color-warning: #ff9f43;
+  --color-warning-bg: rgba(255, 159, 67, 0.1);
+  --color-warning-border: rgba(255, 159, 67, 0.2);
+
+  --color-danger: #ee5253;
+  --color-danger-bg: rgba(238, 82, 83, 0.1);
+  --color-danger-border: rgba(238, 82, 83, 0.2);
+
+  --color-info: #0abde3;
+  --color-info-bg: rgba(10, 190, 227, 0.1);
+  --color-info-border: rgba(10, 190, 227, 0.2);
+}

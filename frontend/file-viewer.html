@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="View code contents with high quality syntax-ready styling, copy scripts, or download files.">
+  <title>File Viewer - RepoLens</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/dark-theme.css">
+  <link rel="stylesheet" href="css/light-theme.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/utilities.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/pages/file-viewer.css">
+
+  <!-- ES Module Entry -->
+  <script type="module" src="js/app.js"></script>
+</head>
+<body class="app-shell">
+
+  <!-- Navbar target container -->
+  <div id="navbar-container"></div>
+
+  <!-- Authenticated Shell Container -->
+  <div class="shell-container">
+    
+    <!-- Sidebar target container -->
+    <aside id="sidebar-container" class="sidebar"></aside>
+
+    <!-- Main Content Area -->
+    <main class="content-wrapper" id="main-content-scrollable">
+      
+      <!-- Breadcrumbs Path -->
+      <nav class="breadcrumbs animate-fade-in" id="file-breadcrumbs" aria-label="Breadcrumb">
+        <div class="breadcrumb-item">
+          <span class="skeleton w-lg h-md"></span>
+        </div>
+      </nav>
+
+      <!-- File Header metadata card -->
+      <div id="file-header-card" class="card file-header-card animate-fade-in delay-1">
+        <div class="file-title-block">
+          <div class="skeleton skeleton-title w-third h-lg"></div>
+        </div>
+        <div class="file-actions-row">
+          <div class="skeleton skeleton-badge w-lg h-lg"></div>
+          <div class="skeleton skeleton-badge w-lg h-lg"></div>
+        </div>
+      </div>
+
+      <!-- File Code Viewer Panel -->
+      <div class="code-viewer-card animate-slide-up delay-2" id="code-viewer-card">
+        <div class="code-viewer-container" id="code-viewer-viewport">
+          <!-- Aligned Line numbers and lines code content -->
+          <div class="line-numbers-col" id="line-numbers-container"></div>
+          <div class="code-content-col" id="code-lines-container">
+            <div class="text-muted text-center py-xl w-full">Loading file content...</div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Reusable modal wrapper -->
+  <div id="modal-wrapper"></div>
+
+  <!-- Reusable Toast notifications container -->
+  <div id="toast-container"></div>
+
+</body>
+</html>
