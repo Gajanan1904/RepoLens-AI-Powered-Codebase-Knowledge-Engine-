@@ -5,10 +5,15 @@ from .base import BaseEmbeddingProvider
 
 class SentenceTransformerProvider(BaseEmbeddingProvider):
     def __init__(self):
-        self.model = SentenceTransformer("all-MiniLM-L6-v2")
+        self.model = None
+
+    def _get_model(self):
+        if self.model is None:
+            self.model = SentenceTransformer("all-MiniLM-L6-v2")
+        return self.model
 
     def generate_embedding(self, text: str) -> list[float]:
-        return self.model.encode(text).tolist()
+        return self._get_model().encode(text).tolist()
 
     @property
     def dimensions(self) -> int:
