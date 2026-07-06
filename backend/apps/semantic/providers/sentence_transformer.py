@@ -1,5 +1,3 @@
-from sentence_transformers import SentenceTransformer
-
 from .base import BaseEmbeddingProvider
 
 
@@ -9,6 +7,7 @@ class SentenceTransformerProvider(BaseEmbeddingProvider):
 
     def _get_model(self):
         if self.model is None:
+            from sentence_transformers import SentenceTransformer
             self.model = SentenceTransformer("all-MiniLM-L6-v2")
         return self.model
 
