@@ -86,6 +86,9 @@ def scan_repository(project: Project):
     dependencies = DependencyDetector.detect(root)
     PersistenceService.save_dependencies(project, dependencies)
 
+    from apps.intelligence.services.repository_analyzer import RepositoryAnalyzer
+    RepositoryAnalyzer.build(project)
+
     project.status = Project.Status.READY
     project.save(update_fields=["status"])
 
