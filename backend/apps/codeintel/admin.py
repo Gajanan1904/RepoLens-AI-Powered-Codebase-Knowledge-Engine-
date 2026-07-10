@@ -7,7 +7,7 @@ from .models import (
     RepositoryFramework,
     RepositoryDependency,
 )
-
+ 
 admin.site.register(CodeClass)
 admin.site.register(CodeFunction)
 admin.site.register(CodeImport)

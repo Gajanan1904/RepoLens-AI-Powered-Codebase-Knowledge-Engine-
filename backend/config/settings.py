@@ -181,13 +181,13 @@ GEMINI_API_KEY = config("GEMINI_API_KEY")
 
 CORS_ALLOWED_ORIGINS = config(
     "CORS_ALLOWED_ORIGINS",
-    default="http://localhost:5173",
+    default= "https://repo-lens-ai-powered-codebase-knowl.vercel.app",
     cast=lambda v: [origin.strip() for origin in v.split(",")],
 )
 
 CSRF_TRUSTED_ORIGINS = config(
     "CSRF_TRUSTED_ORIGINS",
-    default="",
+    default="https://repo-lens-ai-powered-codebase-knowl.vercel.app",
     cast=lambda v: [origin.strip() for origin in v.split(",") if origin.strip()],
 )
 

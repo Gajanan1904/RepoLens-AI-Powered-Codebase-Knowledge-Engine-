@@ -5,6 +5,7 @@ from apps.semantic.services.semantic_retrieval_service import (
     SemanticRetrievalService,
 )
 from django.conf import settings
+from apps.ai.logger import logger
 
 
 class AIReasoningService:
