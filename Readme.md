@@ -293,19 +293,6 @@ Neon PostgreSQL
 
 ---
 
-# 📸 Screenshots
-
-Add screenshots here:
-
-- Landing Page
-- Login
-- Dashboard
-- Repository Upload
-- AI Chat
-- Repository Details
-
----
-
 # 📊 Version
 
 ## RepoLens v1.0
@@ -339,20 +326,6 @@ Add screenshots here:
 - Repository Comparison
 - Team Collaboration
 - Advanced Analytics
-
----
-
-# 👨‍💻 Author
-
-**Gajanan Bidwai**
-
-B.Tech Computer Science & Engineering
-
-Lovely Professional University
-
-GitHub: https://github.com/Gajanan1904
-
-LinkedIn: *(Add your LinkedIn profile)*
 
 ---
 
